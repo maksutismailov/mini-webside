@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sample Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .login-container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    .login-container input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+    }
+    .login-container button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .download-link {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login</h1>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+  <a class="download-link" href="#" download="file.txt" id="downloadLink">Download File</a>
+
+  <script>
+    // Simulate login process (replace this with actual authentication logic in a real application)
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // You should send the username and password to the server for validation in a real application.
+      // For this example, we'll assume the login is successful.
+      const loginSuccess = true;
+
+      if (loginSuccess) {
+        // Show the download link and trigger the download
+        const downloadLink = document.getElementById("downloadLink");
+        downloadLink.style.display = "inline";
+        downloadLink.click();
+      } else {
+        alert("Invalid username or password. Please try again.");
+      }
+    }
+  </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
